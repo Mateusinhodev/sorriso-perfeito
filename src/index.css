@@ -1,0 +1,275 @@
+@import "tailwindcss"; /* Importa o Tailwind principal */
+@import "tw-animate-css"; /* Importa animações adicionais */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @custom-variant dark (&:is(.dark *)); */
+
+@layer base {
+  :root {
+    /* Fundo geral claro, quase branco */
+    --background: 210 40% 98%;
+    /* Cor de texto padrão, azul acinzentado escuro */
+    --foreground: 215 25% 27%;
+
+    /* Cards brancos com texto escuro */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    /* Popovers iguais aos cards */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Azul vivo principal da marca */
+    --primary: 201 96% 32%;
+    /* Texto branco sobre o primário */
+    --primary-foreground: 0 0% 100%;
+
+    /* Turquesa como cor secundária */
+    --secondary: 180 62% 55%;
+    /* Texto branco sobre o secundário */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Cinza-azulado suave para elementos discretos */
+    --muted: 210 40% 96%;
+    /* Texto levemente mais escuro para muteds */
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent igual ao secundário (turquesa) */
+    --accent: 180 62% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Vermelho forte para ações destrutivas */
+    --destructive: 0 84% 60%;
+    /* Texto branco sobre o destrutivo */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Bordas claras, quase invisíveis */
+    --border: 215 20% 80%;
+    /* Inputs com a mesma cor que bordas */
+    --input: 214 32% 91%;
+    /* Cor do outline (igual ao primário) */
+    --ring: 201 96% 32%;
+
+    /* Raio padrão dos componentes */
+    --radius: 0.75rem;
+
+    /* Gradiente azul → turquesa para o herói */
+    --hero-gradient-start: 201 96% 32%;
+    --hero-gradient-end: 180 62% 55%;
+
+    /* Fundo branco dos cards de serviço */
+    --service-card-bg: 0 0% 100%;
+    /* Hover levemente azulado */
+    --service-card-hover: 210 40% 98%;
+
+    /* Sombras sutis baseadas no azul-escuro */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 27% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 27% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 27% / 0.1);
+
+    /* Transição suave padrão */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Fundo azul bem escuro no dark mode */
+    --background: 215 28% 17%;
+    /* Texto quase branco para alto contraste */
+    --foreground: 210 40% 98%;
+
+    /* Cards um pouco mais claros que o fundo */
+    --card: 215 25% 20%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popovers combinam com cards */
+    --popover: 215 25% 20%;
+    --popover-foreground: 210 40% 98%;
+
+    /* No dark mode o primário muda para turquesa */
+    --primary: 180 62% 55%;
+    /* Texto escuro sobre o primário claro */
+    --primary-foreground: 215 25% 27%;
+
+    /* Secundário vira o azul vivo */
+    --secondary: 201 96% 32%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted mais escuro, ideal para containers */
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent igual ao secundário (turquesa) */
+    --accent: 180 62% 55%;
+    /* Texto escuro sobre o accent no dark */
+    --accent-foreground: 215 25% 27%;
+
+    /* Vermelho mais escuro e menos saturado para não brilhar no escuro */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Bordas escuras, porém visíveis */
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    /* Ring turquesa, destaque forte no modo escuro */
+    --ring: 180 62% 55%;
+
+    /* Cards escuros no dark mode */
+    --service-card-bg: 215 25% 20%;
+    /* Hover ligeiramente mais claro */
+    --service-card-hover: 215 25% 23%;
+  }
+}
+
+@theme inline {
+  /* Variações do border-radius derivadas do --radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Mapeamento das cores para tokens do Tailwind */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Tokens adicionais não definidos, mas reservados */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    /* Todas as bordas usam a cor definida em --border */
+    @apply border-border outline-ring/50;
+  }
+  body {
+    /* Fundo e texto aplicados automaticamente */
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+  .text-primary:hover {
+    color: hsl(var(--primary) / 0.8);
+  }
+  .text-foreground:hover {
+    color: hsl(var(--foreground));
+  }
+  .border-faint {
+    border-color: hsl(var(--border) / 0.05);
+  }
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+  .text-secondary {
+    color: hsl(var(--secondary));
+  }
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
+  }
+  .bg-secondary:hover {
+    background-color: hsl(var(--secondary) / 0.9);
+  }
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+  .bg-primary\10 {
+    background-color: hsl(var(--primary) / 0.1);
+  }
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+  .bg-accent\/10 {
+    background-color: hsl(var(--accent) / 0.1);
+  }
+  .text-accent {
+    color: hsl(var(--accent));
+  }
+  .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  .bg-secondary\/10 {
+    background-color: hsl(var(--secondary) / 0.1);
+  }
+  .bg-card { 
+    background-color: hsl(var(--card)); 
+  }
+  .text-card-foreground { 
+    color: hsl(var(--card-foreground)); 
+  }
+  .bg-popover { 
+    background-color: hsl(var(--popover)); 
+  }
+  .text-popover-foreground { 
+    color: hsl(var(--popover-foreground)); 
+  }
+  .bg-input { 
+    background-color: hsl(var(--input)); 
+  }
+  .border-input { 
+    border-color: hsl(var(--input)); 
+  }
+  .text-destructive {
+    color: hsl(var(--destructive));
+  }
+  .border-destructive {
+    border-color: hsl(var(--destructive));
+  }
+  .bg-destructive {
+    background-color: hsl(var(--destructive));
+  }
+  .bg-destructive:hover {
+    background-color: hsl(var(--destructive) / 0.9);
+  }
+
+  /* Hover do botão primário */
+  .bg-primary:hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+}
