@@ -25,11 +25,11 @@ const Index = () => {
                         className="absolute inset-0 h-full w-full object-cover z-0" 
                     />
                     <div className="relative z-20 container px-25 mx-auto py-24 md:py-32">
-                        <div className="max-w-2xl text-primary-foreground drop-shadow-lg">
+                        <div className="max-w-2xl text-primary-foreground drop-shadow-[0_3px_6px_rgba(0,0,0,0.45)]">
                             <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl text-primary-foreground">
                                 Seu Sorriso Merece o Melhor Cuidado.
                             </h1>
-                            <p className="mb-8 text-lg md:text-xl text-primary-foreground">
+                            <p className="mb-8 text-lg md:text-xl text-primary-foreground drop-shadow-[0_3px_6px_rgba(0,0,0,0.45)]">
                                 Tratamentos odontológicos modernos e personalizados para toda a família. Experiência, tecnologia e carinho em cada atendimento.
                             </p>
                             <NavLink to="/contato">
