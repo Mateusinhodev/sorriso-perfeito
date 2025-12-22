@@ -29,7 +29,7 @@ const Index = () => {
                 Tratamentos odontológicos modernos e personalizados para toda a
                 família. Experiência, tecnologia e carinho em cada atendimento.
               </p>
-              <NavLink to="/contato">
+              <NavLink to="/agendamento">
                 <Button size="lg" variant="secondary" className="shadow-xl">
                   Agende sua Consulta
                 </Button>
