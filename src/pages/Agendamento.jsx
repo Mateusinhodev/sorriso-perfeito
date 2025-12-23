@@ -381,7 +381,7 @@ const Agendamento = () => {
                                     <Button variant="outline" size="lg">Volta ao início</Button>
                                 </Link>
                                 <a 
-                                    href={`https://wa.me/5563984522091?text=${encodeURIComponent(
+                                    href={`https://wa.me/5563992811537?text=${encodeURIComponent(
                                         `Olá! Me chamo ${formData.name}.\n\n` +
                                         `Gostaria de confirmar meu agendamento realizado pelo site:\n` +
                                         `*Procedimento:* ${selectedServiceData?.title}\n` +
